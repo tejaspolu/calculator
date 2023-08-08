@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 75vh;
+    min-height: 500px;
+    align-items: center;
+    background-color: rgb(204, 225, 232);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 25px;
+    gap: 10px;
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    width: 100%;
+    flex-shrink: 0;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.past-operation, .operation {
+    flex: 1;
+    height: 100%;
+    position: relative;
+    margin: 10px;
+}
+
+p {
+    position:absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 25px;
+}
+
+.past-num {
+    font-size: 17px;
+}
+
+.delete-row, .seven-row, .four-row, .one-row, .zero-row {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    width: 100%;
+    gap: 15px;
+}
+
+.clear, .delete {
+    height: 100%;
+    flex: 1;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.clear {
+    background-color: rgb(237, 165, 165);
+}
+
+.delete {
+    background-color: rgb(173, 182, 230);
+}
+
+.clear:hover, .delete:hover, .cell:hover {
+    cursor: pointer;
+    filter: brightness(90%);
+}
+
+.cell {
+    flex: 1;
+    height: 100%;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
