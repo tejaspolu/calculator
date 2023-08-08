@@ -23,18 +23,23 @@ function operate(operator, a, b){
 }
 
 function updateDisplay() {
-    if(document.querySelector('.past-num').innerText.includes("=")){
-        document.querySelector('.past-num').innerText = "Ans = " + document.querySelector('.current-num').innerText;
-        displayVal = this.innerText;
-        a = 0;
+    if(!(document.querySelector('.current-num').innerText.includes('.') && this.innerText === '.')){
+        if(document.querySelector('.past-num').innerText.includes("=") && this.innerText !== '.'){
+            document.querySelector('.past-num').innerText = "Ans = " + document.querySelector('.current-num').innerText;
+            displayVal = this.innerText;
+            a = 0;
+        } 
+        else if(displayVal === '0') {
+            displayVal = this.innerText;
+        } else if(this.innerText === '.'){
+            clearDisplay();
+            displayVal = this.innerText;
+        }
+        else {
+            displayVal += this.innerText;
+        }
+        document.querySelector('.current-num').innerText = displayVal;
     }
-    else if(displayVal === '0') {
-        displayVal = this.innerText;
-    }
-    else {
-        displayVal += this.innerText;
-    }
-    document.querySelector('.current-num').innerText = displayVal;
 }
 
 function goToNextNum() {
@@ -84,7 +89,13 @@ function clearDisplay(){
 }
 
 function deleteDisplay(){
-
+    if(document.querySelector('.past-num').innerText.includes("=")){
+        clearDisplay();
+    } else {
+        currentText = document.querySelector('.current-num').innerText;
+        document.querySelector('.current-num').innerText = currentText.slice(0, currentText.length - 1);
+        displayVal = document.querySelector('.current-num').innerText;
+    }
 }
 
 let displayVal = "0";
